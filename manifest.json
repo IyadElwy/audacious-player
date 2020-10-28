@@ -1,0 +1,19 @@
+{
+	"required_api_version": "^2.0.0",
+	"name": "audacious-player",
+	"description": "Controls Audacious Music Player using ULauncher",
+	"developer_name": "Guaxinim5573",
+	"icon": "images/icon.png",
+	"options": {
+		"query_debounce": 0.5
+	},
+	"preferences": [
+		{
+			"id": "audtool_kw",
+			"type": "keyword",
+			"name": "Audacious Extension",
+			"description": "Show Audacious Extension options",
+			"default_value": "aud"
+		}
+	]
+}
