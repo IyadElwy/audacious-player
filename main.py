@@ -28,7 +28,7 @@ class AudExtension(Extension):
                     on_enter=ExtensionCustomAction(
                         {"action": "playpause"}, keep_app_open=True
                     ),
-                    description=current_song,
+                    description=current_song + " " + "(Paused)",
                 )
             )
         else:
@@ -39,6 +39,7 @@ class AudExtension(Extension):
                     on_enter=ExtensionCustomAction(
                         {"action": "playpause"}, keep_app_open=True
                     ),
+                    description=current_song + " " + "(Paused)",
                 )
             )
 

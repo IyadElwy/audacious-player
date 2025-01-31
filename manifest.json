@@ -11,7 +11,7 @@
 		{
 			"id": "audtool_kw",
 			"type": "keyword",
-			"name": "Audacious Extension",
+			"name": "Audacious Extension Enhanced",
 			"description": "Show Audacious Extension options",
 			"default_value": "aud"
 		}
