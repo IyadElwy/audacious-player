@@ -6,19 +6,17 @@ from ulauncher.api.shared.item.ExtensionResultItem import ExtensionResultItem
 
 import audtool
 from ItemEnterEventListener import ItemEnterEventListener
+from KeywordQueryEventListener import KeywordQueryEventListener
 
 
 class AudExtension(Extension):
     def __init__(self):
         super(AudExtension, self).__init__()
         self.logger.info("Inializing Audacious Extension")
-        self.subscribe(KeywordQueryEvent, self.render_main_page_event)
+        self.subscribe(KeywordQueryEvent, KeywordQueryEventListener())
         self.subscribe(ItemEnterEvent, ItemEnterEventListener())
         self._status = None
         self._current_song = None
-
-    def render_main_page_event(self, event):
-        return self.render_main_page()
 
     def _update_state(self):
         """Update the cached player state."""
