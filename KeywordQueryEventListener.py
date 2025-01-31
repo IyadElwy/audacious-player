@@ -49,4 +49,4 @@ class KeywordQueryEventListener(EventListener):
                 )
             return RenderResultListAction(items)
 
-        # return extension.render_main_page()
+        return extension.render_main_page()
