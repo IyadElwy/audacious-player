@@ -17,4 +17,4 @@ class ItemEnterEventListener(EventListener):
             audtool.volume("+5")
         elif data["action"] == "volume_down":
             audtool.volume("-5")
-        # return extension.render_main_page()
+        return extension.render_main_page()
