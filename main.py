@@ -1,19 +1,19 @@
 from ulauncher.api.client.Extension import Extension
 from ulauncher.api.shared.action.ExtensionCustomAction import ExtensionCustomAction
 from ulauncher.api.shared.action.RenderResultListAction import RenderResultListAction
-from ulauncher.api.shared.event import ItemEnterEvent, KeywordQueryEvent
+from ulauncher.api.shared.event import ItemEnterEvent
 from ulauncher.api.shared.item.ExtensionResultItem import ExtensionResultItem
 
 import audtool
 from ItemEnterEventListener import ItemEnterEventListener
-from KeywordQueryEventListener import KeywordQueryEventListener
+
+# from KeywordQueryEventListener import KeywordQueryEventListener
 
 
 class AudExtension(Extension):
     def __init__(self):
         super(AudExtension, self).__init__()
         self.logger.info("Inializing Audacious Extension")
-        self.subscribe(KeywordQueryEvent, KeywordQueryEventListener())
         self.subscribe(ItemEnterEvent, ItemEnterEventListener())
         self._status = None
         self._current_song = None
