@@ -15,12 +15,19 @@ class AudExtension(Extension):
         self.logger.info("Inializing Audacious Extension")
         self.subscribe(KeywordQueryEvent, KeywordQueryEventListener())
         self.subscribe(ItemEnterEvent, ItemEnterEventListener())
+        self._status = None
+        self._current_song = None
+
+    def _update_state(self):
+        """Update the cached player state."""
+        self._status = audtool.status()
+        self._current_song = audtool.get_current_song()
 
     def render_main_page(self):
-        status = audtool.status()
+        self._update_state()  # Update the cached state
         items = []
         current_song = audtool.get_current_song()
-        if status == "playing":
+        if self._status == "playing":
             items.append(
                 ExtensionResultItem(
                     icon="images/pause.png",
@@ -28,7 +35,7 @@ class AudExtension(Extension):
                     on_enter=ExtensionCustomAction(
                         {"action": "playpause"}, keep_app_open=True
                     ),
-                    description=current_song + " " + "(Paused)",
+                    description=self._current_song + " " + "(Paused)",
                 )
             )
         else:
@@ -39,7 +46,7 @@ class AudExtension(Extension):
                     on_enter=ExtensionCustomAction(
                         {"action": "playpause"}, keep_app_open=True
                     ),
-                    description=current_song + " " + "(Paused)",
+                    description=self._current_song + " " + "(Paused)",
                 )
             )
 

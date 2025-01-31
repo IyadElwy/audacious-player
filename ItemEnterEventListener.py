@@ -9,16 +9,12 @@ class ItemEnterEventListener(EventListener):
         extension.logger.debug(str(data))
         if data["action"] == "playpause":
             audtool.playpause()
-            return extension.render_main_page()
         elif data["action"] == "next":
             audtool.next()
-            return extension.render_main_page()
         elif data["action"] == "prev":
             audtool.prev()
-            return extension.render_main_page()
         elif data["action"] == "volume_up":
             audtool.volume("+5")
-            return extension.render_main_page()
         elif data["action"] == "volume_down":
             audtool.volume("-5")
-            return extension.render_main_page()
+        return extension.render_main_page()
