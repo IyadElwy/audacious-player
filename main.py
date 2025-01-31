@@ -48,7 +48,7 @@ class AudExtension(Extension):
                 icon="images/next.png",
                 name="Next Song",
                 description="Skip current song and go to next song",
-                on_enter=ExtensionCustomAction({"action": "next"}),
+                on_enter=ExtensionCustomAction({"action": "next"}, keep_app_open=True),
             )
         )
         items.append(
@@ -56,7 +56,7 @@ class AudExtension(Extension):
                 icon="images/prev.png",
                 name="Previus Song",
                 description="Return to previus song",
-                on_enter=ExtensionCustomAction({"action": "prev"}),
+                on_enter=ExtensionCustomAction({"action": "prev"}, keep_app_open=True),
             )
         )
 
